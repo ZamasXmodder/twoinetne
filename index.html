@@ -74,28 +74,22 @@
   </div>
 
   <script>
-    (function(){
-      const first = 'https://www.roblox.com/share?code=a1d4c0556586b44fb43f39ff9dfc6fd9&type=Server';
-      const second = 'https://zamasxmodder.github.io/cooldown/';
-      const btn = document.getElementById('getKeyBtn');
-      const counter = document.getElementById('clickCounter');
-      let clicks = 0;
+  (function(){
+    const first = 'https://www.roblox.com/share?code=a1d4c0556586b44fb43f39ff9dfc6fd9&type=Server';
+    const second = 'https://zamasxmodder.github.io/cooldown/';
+    const btn = document.getElementById('getKeyBtn');
+    const counter = document.getElementById('clickCounter');
+    let clicks = 0;
 
-      btn.addEventListener('click', function(){
-        clicks++;
-        counter.textContent = clicks;
+    btn.addEventListener('click', function(){
+      clicks++;
+      counter.textContent = clicks;
 
-        // Abrimos Roblox en una nueva pestaña y después navegamos ESTA pestaña al segundo enlace.
-        // Esto garantiza que te quedes en la página de cooldown, mientras Roblox queda abierto en otra pestaña.
-        const w1 = window.open(first, '_blank', 'noopener,noreferrer');
+      // Abrimos la página de cooldown en una nueva pestaña
+      window.open(second, '_blank', 'noopener,noreferrer');
 
-        // Pequeño retraso para dar tiempo al navegador a crear la pestaña nueva.
-        setTimeout(function(){
-          // Si la apertura de la primera pestaña fue bloqueada por el navegador, igual navegamos a la página de cooldown.
-          window.location.href = second;
-        }, 200);
-      });
-    })();
-  </script>
-</body>
-</html>
+      // Redirigimos ESTA pestaña a Roblox
+      window.location.href = first;
+    });
+  })();
+</script>
